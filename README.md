@@ -12,9 +12,11 @@ if java_home is 11 , then pom.xml java.version should also be 11
 https://stackoverflow.com/questions/51631346/maven-3-8-0-compiler-fatal-error-compiling-release-version-11-not-supported
 
 # run using maven
-clean => mvn clean
-compile => mvn compile
-Run => mvn spring-boot:run
+clean => `mvn clean`
+compile => `mvn compile`
+Run => `mvn spring-boot:run`
+Run local => `mvn spring-boot:run -D"spring-boot.run.arguments"="--spring.profiles.active=local"`
+
 
 # build container and push using Jib and Testing
   https://cloud.google.com/java/getting-started/jib#build-jib
