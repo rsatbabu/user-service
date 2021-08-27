@@ -44,7 +44,9 @@ gcloud iam roles describe  roles/cloudsql.client
 - cloudsql.instances.connect
 - cloudsql.instances.get
 
-
+# swagger documentation
+https://www.tutorialspoint.com/spring_boot/spring_boot_enabling_swagger2.htm
+http://localhost:8080/swagger-ui.html#/
 
 # important
 check if the mvn java_home and the java.version in pom.xml is the same
@@ -63,6 +65,8 @@ clean => `mvn clean`
 compile => `mvn compile`
 Run => `mvn spring-boot:run`
 Run local => `mvn spring-boot:run -D"spring-boot.run.arguments"="--spring.profiles.active=local"`
+
+`mvn spring-boot:run -D"spring-boot.run.arguments"="--spring.profiles.active=local" -Drun.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000" `
 
 curl https://start.spring.io/starter.tgz -d bootVersion=2.3.0.RELEASE -d dependencies=web
 
