@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 public class UserController {
@@ -29,10 +30,15 @@ public class UserController {
 	private UserRepository userRepository;
 
 	@GetMapping("/health")
+	@CrossOrigin(origins = "*")
 	public String getHealth() {
-		return greeting;
+		return "Version1";
 	}
-
+	@GetMapping("/cors")
+	@CrossOrigin(origins = "*")
+	public String getCors() {
+		return "cors____";
+	}
 	@GetMapping("/users")
 	public ResponseEntity<List<User>> getAllUsers() {
 		try {
