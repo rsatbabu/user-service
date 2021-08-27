@@ -5,8 +5,27 @@ https://spring-gcp.saturnism.me/deployment/docker/container-image#connect-locall
 
 PROJECT_ID=$(gcloud config get-value project)
 PROJECT_ID=companyproject-324019
+
+# Spring Cloud Samples
+https://cloud.spring.io/spring-cloud-static/spring-cloud-gcp/1.2.2.RELEASE/reference/html/#_spring_data_cloud_spanner
+# Spring GCP samples
+https://github.com/GoogleCloudPlatform/spring-cloud-gcp/tree/main/spring-cloud-gcp-samples
+
+
+gcloud config set project companyproject-324019
 # Connecting to H2 locally
 https://www.bezkoder.com/spring-boot-jpa-h2-example/
+# connect to local postgres
+https://github.com/mkyong/spring-boot/blob/master/spring-data-jpa-postgresql/src/main/resources/application.properties
+# connect to gcp cloud sql
+https://github.com/GoogleCloudPlatform/spring-cloud-gcp/tree/main/spring-cloud-gcp-samples/spring-cloud-gcp-sql-postgres-sample
+# access secrets manager
+https://codelabs.developers.google.com/codelabs/cloud-spring-cloud-gcp-secret-manager#4
+https://www.youtube.com/watch?v=nsrADMrp4BI
+secretmanager.secretAccessor  https://youtu.be/nsrADMrp4BI?t=691
+# access to gcp secret manager
+https://github.com/GoogleCloudPlatform/spring-cloud-gcp/tree/main/spring-cloud-gcp-samples/spring-cloud-gcp-secretmanager-sample
+
 # video on connecting to cloud sql from cloud run
 https://www.youtube.com/watch?v=jvZXbJv6qJ4
 
@@ -44,15 +63,19 @@ curl https://start.spring.io/starter.tgz -d bootVersion=2.3.0.RELEASE -d depende
 
 
 # build container and push using Jib and Testing
+- Step 1
   https://cloud.google.com/java/getting-started/jib#build-jib
+- Step 2
   https://cloud.google.com/java/getting-started/jib#shipping_the_code
   gcloud config set run/region us-east1
 
   gcloud run deploy user-service --image gcr.io/companyproject-324019/user-service --platform managed
 
 # Testing locally using Emulator
-https://cloud.google.com/run/docs/testing/local
 https://cloud.google.com/code/docs/vscode/install
+https://cloud.google.com/run/docs/testing/local
+https://cloud.google.com/code/docs/vscode/developing-a-cloud-run-service
+
 
 To disable watch mode for subsequent runs, set watch to false in your launch configuration c:\Users\rblba\Documents\tutorials\spring\user-service\.vscode\launch.json and relaunch the application.
 To disable watch mode in the current session, click on the Cloud Code Status Bar and select 'Turn off watch mode'
@@ -73,3 +96,6 @@ https://spring-gcp.saturnism.me/deployment/docker/container-image#run-locally
 
 docker pull gcr.io/${PROJECT_ID}/helloworld
 docker run -ti --rm -p 8080:8080 gcr.io/${PROJECT_ID}/helloworld
+
+# To View Logs
+https://console.cloud.google.com/logs/query;query=resource.type%3D"cloud_run_revision"%0Aresource.labels.service_name%3D"user-service"%0Aresource.labels.revision_name%3D"user-service-00002-rax";cursorTimestamp=2021-08-27T17:14:57.168339Z?project=companyproject-324019
