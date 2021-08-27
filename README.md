@@ -25,6 +25,11 @@ https://www.youtube.com/watch?v=nsrADMrp4BI
 secretmanager.secretAccessor  https://youtu.be/nsrADMrp4BI?t=691
 # access to gcp secret manager
 https://github.com/GoogleCloudPlatform/spring-cloud-gcp/tree/main/spring-cloud-gcp-samples/spring-cloud-gcp-secretmanager-sample
+# create postgres gcp
+https://www.youtube.com/watch?v=wAV0KbrKXF8
+gcloud sql connect company-db-postgres --user=postgres
+
+
 
 # video on connecting to cloud sql from cloud run
 https://www.youtube.com/watch?v=jvZXbJv6qJ4
