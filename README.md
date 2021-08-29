@@ -78,6 +78,7 @@ curl https://start.spring.io/starter.tgz -d bootVersion=2.3.0.RELEASE -d depende
   https://cloud.google.com/java/getting-started/jib#shipping_the_code
   gcloud config set run/region us-east1
 
+
   gcloud run deploy user-service --image gcr.io/companyproject-324019/user-service --platform managed
 
 # Testing locally using Emulator
