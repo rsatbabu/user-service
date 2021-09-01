@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class UserController {
 
 	@Value("${spring.datasource.password}")
@@ -57,6 +58,7 @@ public class UserController {
 	}
 
 	@PostMapping("/users")
+	@CrossOrigin(origins = "*")
 	public ResponseEntity<User> createUser(@RequestBody User user) {
 
 		try {
